@@ -10,7 +10,6 @@ const Category = () => {
 
     const [subcategorias, setSubcategorias] = useState([])
     const { id } = useParams()
-
     const url = useResolvedPath('').pathname
 
     useEffect(() => {
@@ -19,6 +18,35 @@ const Category = () => {
             setSubcategorias(reponse[0].subcategorias)
         })
     }, [id])
+
+    const [currentClassname, setCurrentClassname] = useState('');
+
+    function getCurrentPath() {
+        const path = window.location.pathname;
+        const segments = path.split('/');
+        return segments[3];
+    }
+    const updatecolor = getCurrentPath();
+
+    useEffect(() => {
+        switch (updatecolor) {
+            case "entrenamiento":
+                setCurrentClassname(`subcategory--active`)
+                break
+            case "educacion":
+                setCurrentClassname(`subcategory--active`)
+                break
+            case "higiene":
+                setCurrentClassname(`subcategory--active`)
+                break
+            case "salud":
+                setCurrentClassname(`subcategory--active`)
+                break
+            default:
+                setCurrentClassname(``)
+        }
+    }, [updatecolor]);
+    // console.log(updatecolor)
 
     return (
         <>
@@ -29,7 +57,7 @@ const Category = () => {
             <ul className='category-list container flex'>
                 {
                     subcategorias.map(subcategoria => (
-                        <li className={`category-list__category category-list__category--${id}`} key={subcategoria}>
+                        <li className={`category-list__category category-list__category--${id} ${subcategoria === updatecolor ? currentClassname : ''}`} key={subcategoria}>
                             <Link to={`${url}/${subcategoria}`}>
                                 {subcategoria}
                             </Link>

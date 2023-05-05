@@ -21,3 +21,18 @@
   color: var(--contrast-light-color);
   background-color: var(--cor-categoria-comportamiento);
 }
+
+.subcategory--active {
+  background-color: rgb(41, 194, 92);
+}
+
+.subcategory__no--active {
+  transform: scale(0.85);
+  background-color: rgb(200, 28, 28);
+}
+
+/* clase que uso dentro de category.jsx en ${subcategoria === updatecolor ? currentClassname : '' */
+.subcategory__no--active {
+  transform: scale(0.85);
+  background-color: rgb(88, 146, 130);
+}
