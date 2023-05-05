@@ -2,13 +2,14 @@ import image from "../assets/img/doguito.svg"
 import "../assets/css/componentes/header.css"
 import { Link } from "react-router-dom"
 import { AiFillHome } from "react-icons/ai";
+import BurgerMenu from "./BurgerMenu";
 
 
 const Header = () => {
     return (
         <header className="header container">
             <div className="menu-hamburguer">
-                <span className="menu-hamburguer__icon"></span>
+                <BurgerMenu />
             </div>
             <div className="header-container">
                 <Link to="/" className="flex flex--center">
@@ -32,7 +33,7 @@ const Header = () => {
                         <Link className="menu-item" to="/posts">Posts</Link>
                     </li>
                     <li>
-                        <Link className="menu-item" to="/prodcutos">Productos</Link>
+                        <Link className="menu-item" to="/productos">Productos</Link>
                     </li>
                     <li>
                         <Link className="menu-item" to="/sobre">Sobre</Link>

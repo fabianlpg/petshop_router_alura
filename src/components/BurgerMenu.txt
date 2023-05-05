@@ -1,0 +1,95 @@
+import { stack as Menu } from 'react-burger-menu'
+// import { slide as Menu } from 'react-burger-menu'
+import "../assets/css/componentes/menunav.css"
+import { Link } from "react-router-dom"
+import { useState } from 'react'
+
+
+// const Navbar = () => {
+//     return <Menu isOpen={true}>
+//         <Link id="login" className="menu-item" to="/login">Entrar</Link>
+//         <Link id="home" className="menu-item" to="/">Home</Link>
+//         <Link id="posts" className="menu-item" to="/posts">Posts</Link>
+//         <Link id="productos" className="menu-item" to="/productos">Productos</Link>
+//         <Link id="sobre" className="menu-item" to="/sobre">Sobre</Link>
+
+//         {/* <a id="login" className="menu-item" href="/login">Entrar</a>
+//         <a id="home" className="menu-item" href="/">Home</a>
+//         <a id="posts" className="menu-item" href="/posts">Posts</a>
+//         <a id="productos" className="menu-item" href="/productos">Productos</a>
+//         <a id="sobre" className="menu-item" href="/sobre">Sobre</a> */}
+//     </Menu>
+// }
+
+// export default Navbar;
+
+/* class Navbar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            menuOpen: false
+        }
+    }
+
+    // This keeps your state in sync with the opening/closing of the menu
+    // via the default means, e.g. clicking the X, pressing the ESC key etc.
+    handleStateChange(state) {
+        this.setState({ menuOpen: state.isOpen })
+    }
+
+    // This can be used to close the menu, e.g. when a user clicks a menu item
+    closeMenu() {
+        this.setState({ menuOpen: false })
+    }
+
+    render() {
+        return (
+            <div>
+                <Menu
+                    isOpen={this.state.menuOpen}
+                    onStateChange={(state) => this.handleStateChange(state)}
+                >
+                    <Link className="menu-item" to="/login" onClick={() => this.closeMenu()}>Entrar</Link >
+                    <Link className="menu-item" to="/" onClick={() => this.closeMenu()}>Home</Link>
+                    <Link className="menu-item" to="/posts" onClick={() => this.closeMenu()}>Posts</Link>
+                    <Link className="menu-item" to="/productos" onClick={() => this.closeMenu()}>Productos</Link>
+                    <Link className="menu-item" to="/sobre" onClick={() => this.closeMenu()}>Sobre</Link>
+                </Menu>
+            </div>
+        )
+    }
+}
+
+export default Navbar; */
+
+
+const Navbar = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+
+    const handleStateChange = (state) => {
+        setMenuOpen(state.isOpen);
+    }
+
+    const closeMenu = () => {
+        setMenuOpen(false);
+    }
+
+    return (
+        <div>
+            <Menu
+                isOpen={menuOpen}
+                onStateChange={(state) => handleStateChange(state)}
+                width={"280px"}
+                stack
+            >
+                <Link className="menu-item" to="/login" onClick={() => closeMenu()}>Entrar</Link >
+                <Link className="menu-item" to="/" onClick={() => closeMenu()}>Home</Link>
+                <Link className="menu-item" to="/posts" onClick={() => closeMenu()}>Posts</Link>
+                <Link className="menu-item" to="/productos" onClick={() => closeMenu()}>Productos</Link>
+                <Link className="menu-item" to="/sobre" onClick={() => closeMenu()}>Sobre</Link>
+            </Menu>
+        </div>
+    )
+}
+
+export default Navbar;
